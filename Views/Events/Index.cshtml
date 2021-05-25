@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    var concerts = ViewBag.Concerts;
+    var festivals = ViewBag.Festivals;
+    var Events = ViewBag.Events;
+}
+
+<link rel="stylesheet" href="~/css/commons.css" type="text/css">
+<link rel="stylesheet" href="~/css/home.css" type="text/css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<div class="container text-center">
+    <h3>WHO WE ARE</h3>
+    <p><em>First of all, we love music, just like you!</em></p>
+    <p>We created this application to bring music festivals and concerts closer to you. Come and collect moments at your favorite concerts!</p>
+    <br>
+    <div class="album py-5 bg-light">
+        <div class="container row">
+            @foreach (var concert in concerts)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" src="@concert.PosterUrl" alt="Card image cap">
+                        <div class="card-body">
+                            <h2 class="text-center">@concert.SingerName</h2>
+                            <p class="card-text">@concert.Description</p>
+                            <p class="card-text">Price:@concert.Price</p>
+                            <p class="card-text">Available tickets:@concert.AvailableTickets</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#buyTicketModal">Buy Tickets</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="modal fade" id="buyTicketModal" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" style="position:absolute;margin-right:10px; margin-top:10px; font-size:20px;">×</button>
+                <div class="modal-header">
+                    <h4><i class="fas fa-ticket-alt"></i> Tickets</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" asp-controller="Events" asp-action="BuyTickets" method="post">
+                        <select class="custom-select" id="selectEvent" name="eventId" required>
+                            <option value="" selected disabled>Choose...</option>
+                            @foreach (Event selectableEvent in Events)
+                            {
+                                <option value="@selectableEvent.EventId">@selectableEvent.EventId</option>
+                            }
+                        </select>
+                        <div class="form-group">
+                            <label for="psw"><i class="fas fa-shopping-cart"></i> Tickets amount</label>
+                            <input type="number" class="form-control" id="psw" name="Amount" placeholder="How many?">
+                        </div>
+                        <button type="submit" class="btn btn-block">
+                            Pay
+                            <i class="fas fa-check-circle"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                            <i class="fas fa-trash"></i> Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

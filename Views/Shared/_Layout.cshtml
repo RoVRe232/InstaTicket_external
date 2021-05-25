@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - InstaTicket</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="d-flex justify-content-center">
+        <a asp-controller="Home" asp-action="Index"><img class="logo-img" src="~/content/images/Logo.png" /></a>
+    </div>
+
+    <nav class="navbar navbar-expand-md bg-light navbar-light">
+        <a class="navbar-brand" href="#">InstaTicket!</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Events</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" asp-controller="Events" asp-action="Index">Overview</a>
+                        <a class="dropdown-item" asp-controller="Events" asp-action="CreateConcert">Add concert</a>
+                        <a class="dropdown-item" asp-controller="Events" asp-action="CreateFestival">Add festival</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Tickets</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" asp-controller="Tickets" asp-action="Index">My tickets</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">More</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Merchandise</a>
+                        <a class="dropdown-item" href="#">Extras</a>
+                        <a class="dropdown-item" href="#">Media</a>
+                    </div>
+                </li>
+            </ul>
+            <partial name="_LoginPartial" />
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - InstaTicket - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

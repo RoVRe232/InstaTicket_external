@@ -1,0 +1,144 @@
+﻿@model InstaTicket.Views.Models.SignupModel
+
+@{
+    ViewData["Title"] = "Sign up";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Signup" asp-action="OnPostAsync" method="post">
+            <h4>Create a new account.</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Username">Username:</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">User:</div>
+                    </div>
+                    <input asp-for="Username" type="text" class="form-control formInput" id="username" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Firstname">Firstname:</label>
+                <input asp-for="Firstname" type="text" class="form-control formInput" id="firstname" required>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Lastname">Lastname:</label>
+                <input asp-for="Lastname" type="text" class="form-control formInput" id="lastname" required>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Role">Role:</label>
+                <input asp-for="Role" type="text" class="form-control formInput" id="role" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+            <small class="text-center">By signing up and using our app you agree to </small>
+            <a href="#">Our Terms of Service</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+@*<div class="row">
+        <div class="col-sm-2">
+            <a asp-controller="Login" asp-action="Index"><img src="~/content/images/Logo.png" /></a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="container col-sm-6">
+
+            <h2 class="text-center">Create a new account</h2>
+            <br />
+            <p>Please complete the form below and create your brand new InstaTicket account!</p>
+            <p>Already have one? <a asp-controller="Login" asp-action="Index"><u>Sign in here.</u></a> </p>
+            <form method="post" enctype="multipart/form-data" asp-controller="Signup" asp-action="Signup">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input name="email" type="email" class="form-control formInput" id="email" placeholder="Email..." required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">User:</div>
+                        </div>
+                        <input name="username" type="text" class="form-control formInput" id="username" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Pwd:</div>
+                        </div>
+                        <input name="password" type="password" class="form-control formInput" id="password" required>
+                    </div>
+                </div>
+                <small>Password must be at least 5 chars, <b>include uppercase, lowercase and at least one special character.</b></small>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm password:</label>
+                    <input name="confirmPassword" type="password" class="form-control formInput" id="confirmPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="firstname">Firstname:</label>
+                    <input name="firstname" type="text" class="form-control formInput" id="firstname" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastname">Lastname:</label>
+                    <input name="lastname" type="text" class="form-control formInput" id="lastname" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="date">Birth date</label>
+                    <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" />
+                </div>
+
+                <button type="submit" class="btn btn-primary col-sm-4">Sign up</button>
+
+                <small class="text-center">By signing up and using our app you agree to </small>
+                <a href="#">Our Terms of Service</a>
+            </form>
+
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var date_input = $('input[name="date"]');
+            var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+            var options = {
+                format: 'mm/dd/yyyy',
+                container: container,
+                todayHighlight: true,
+                autoclose: true,
+            };
+            date_input.datepicker(options);
+        })
+    </script>*@

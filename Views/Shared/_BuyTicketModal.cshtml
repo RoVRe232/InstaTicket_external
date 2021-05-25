@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+    var Events = ViewBag.Events;
+}
+
+<div class="modal fade" id="buyTicketModal" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" style="position:absolute;margin-right:10px; margin-top:10px; font-size:20px;">×</button>
+            <div class="modal-header">
+                <h4><i class="fas fa-ticket-alt"></i> Tickets</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <select class="custom-select" id="selectEvent" name="eventId" required>
+                        <option value="" selected disabled>Choose...</option>
+                        @foreach (Event selectableEvent in Events)
+                        {
+                            <option value="@selectableEvent.EventId">@selectableEvent.EventId</option>
+                        }
+                    </select>
+                    <div class="form-group">
+                        <label for="psw"><i class="fas fa-shopping-cart"></i> Tickets amount</label>
+                        <input type="number" class="form-control" id="psw" name="Amount" placeholder="How many?">
+                    </div>
+                    <button type="submit" class="btn btn-block">
+                        Pay
+                        <i class="fas fa-check-circle"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                        <i class="fas fa-trash"></i> Cancel
+                    </button>
+                    <p>Need <a href="#">help?</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

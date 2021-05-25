@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewData["Title"] = "CreateConcert";
+    var festivals = ViewBag.Festivals;
+}
+
+<link rel="stylesheet" href="~/css/commons.css" type="text/css">
+<link rel="stylesheet" href="~/css/home.css" type="text/css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+        @*public string Location { get; set; }
+        public string SingerName { get; set; }
+        public int AvailableTickets { get; set; }
+        public double Price { get; set; }
+        public DateTime StartDate { get; set; }
+        public bool BelongsToFestival { get; set; }
+        public int FestivalId { get; set; }*@
+
+<form method="post" enctype="multipart/form-data" asp-controller="Events" asp-action="AddConcert">
+    <div class="form-group">
+        <label for="location">Location:</label>
+        <input name="location" type="text" class="form-control formInput" id="location" placeholder="Location..." required>
+    </div>
+    <div class="form-group">
+        <label for="username">Available tickets:</label>
+        <div class="input-group col-sm-8">
+            <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+            </div>
+            <input name="AvailableTickets" type="text" class="form-control" aria-label="AvailableTickets">
+        </div>
+    </div>
+    <label for="transaction-amount">Ticket price:</label>
+    <div class="row">
+        <div class="input-group col-sm-8">
+            <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+            </div>
+            <input name="Price" type="text" class="form-control" aria-label="Price" required>
+            <div class="input-group-prepend">
+                <select class="custom-select" id="selectCurrency" name="currency" required>
+                    <option value="" selected>Currency...</option>
+                    <option value="1">RON</option>
+                    <option value="2">EUR</option>
+                    <option value="3">USD</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="singerName">Singer Name:</label>
+        <div class="input-group mb-2 mr-sm-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Singer Name:</div>
+            </div>
+            <input name="singerName" type="text" class="form-control formInput" id="singerName" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="singerName">Banner link:</label>
+        <div class="input-group mb-2 mr-sm-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Link:</div>
+            </div>
+            <input name="PosterUrl" type="url" class="form-control formInput" id="PosterUrl" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Event description</label>
+        <textarea class="form-control" name="Description" id="Description" rows="3" required></textarea>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group date" data-provide="datepicker">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Start date:</div>
+            </div>
+            <input type="date" class="form-control" for="startDate" name="startDate" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="input-group-prepend col-6">
+            <select class="custom-select" id="selectCurrency" name="festivalId">
+                <option value="" selected>Festival Id...(empty if none)</option>
+                @foreach (var festival in festivals)
+                {
+                    <option value="@festival.Id">@festival.name</option>
+                }
+            </select>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary col-sm-4">Create concert</button>
+
+    <small class="text-center">By creating this concert you agree to </small>
+    <a href="#">Our Terms of Service</a>
+</form>

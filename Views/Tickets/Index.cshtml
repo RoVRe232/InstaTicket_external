@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    var Username = ViewBag.Username;
+    var UpcomingTickets = ViewBag.UpcomingTickets;
+    var ComingSoonTickets = ViewBag.ComingSoonTickets;
+    var SpentTickets = ViewBag.SpentTickets;
+}
+
+<link rel="stylesheet" href="~/css/commons.css" type="text/css">
+<link rel="stylesheet" href="~/css/home.css" type="text/css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<h2>Hello, @Username</h2>
+
+<div class="container text-center">
+    <h3>EVENTS COMING SOON</h3>
+    <p><em>Preapare yourself, those are the 3 closest events!</em></p>
+    <p> Come and collect moments at your favorite concerts and festivals and don't forget to post pictures on our media!</p>
+    <br>
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <div class="row">
+                @foreach(Ticket comingSoonTicket in ComingSoonTickets)
+                {
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" src="@comingSoonTicket.TicketEvent.PosterUrl" alt="Card image cap">
+                        <div class="card-body">
+                            <h2 class="text-center">@comingSoonTicket.TicketEvent.EventId</h2>
+                            <p class="card-text">@comingSoonTicket.TicketEvent.Description</p>
+                            <p class="card-text">Ticket id: @comingSoonTicket.TicketId</p>
+                            <p class="card-text">Ticket price: $@comingSoonTicket.Price</p>
+                        </div>
+                    </div>
+                </div>
+                }
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="container text-center">
+        <h3>WHO WE ARE</h3>
+        <p><em>First of all, we love music, just like you!</em></p>
+        <p>We created this application to bring music festivals and concerts closer to you. Come and collect moments at your favorite concerts!</p>
+        <br>
+        <div class="album py-5 bg-light">
+            <div class="container row">
+                @foreach (var concert in concerts)
+                {
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="@concert.PosterUrl" alt="Card image cap">
+                            <div class="card-body">
+                                <h2 class="text-center">@concert.SingerName</h2>
+                                <p class="card-text">@concert.Description</p>
+                                <p class="card-text">Price:@concert.Price</p>
+                                <p class="card-text">Available tickets:@concert.AvailableTickets</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View details</button>
+                                        <button class="btn" data-toggle="modal" data-target="#buyTicketModal">Buy Tickets</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>*@

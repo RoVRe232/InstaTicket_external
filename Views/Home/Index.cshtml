@@ -1,0 +1,171 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<link rel="stylesheet" href="~/css/commons.css" type="text/css">
+<link rel="stylesheet" href="~/css/home.css" type="text/css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<div class="mainContainer" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+    <div id="mainCarousel" class="carousel slide" data-ride="carousel">
+
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/content/images/pexels-wendy-wei-1190297.jpg" alt="Concert1" width="1100" height="500">
+            </div>
+            <div class="carousel-item">
+                <img src="~/content/images/pexels-wendy-wei-1190297.jpg" alt="Concert2" width="1100" height="500">
+            </div>
+            <div class="carousel-item">
+                <img src="~/content/images/pexels-wendy-wei-1190297.jpg" alt="Concert3" width="1100" height="500">
+            </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#mainCarousel" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#mainCarousel" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+
+    <div class="container text-center">
+        <h3>WHO WE ARE</h3>
+        <p><em>First of all, we love music, just like you!</em></p>
+        <p>We created this application to bring music festivals and concerts closer to you. Come and collect moments at your favorite concerts!</p>
+        <br>
+        <div class="album py-5 bg-light">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="~/content/images//untold-2019-mainstage-ravejungle.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h2 class="text-center">UNTOLD</h2>
+                                <p class="card-text">Untold Festival is the largest electronic music festival held in Romania, taking place in Cluj-Napoca at the Cluj Arena. It's held annually and has been designated Best Major Festival within European Festival Awards 2015.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View details</button>
+                                        <button class="btn" data-toggle="modal" data-target="#buyTicketModal">Buy Tickets</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="~/content/images/electric_castle.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h2 class="text-center">ELECTRIC CASTLE</h2>
+                                <p class="card-text">Electric Castle is a Romanian music festival that takes place every year on the Transylvanian spectacular domain of Banffy Castle, near Cluj-Napoca.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View details</button>
+                                        <button class="btn" data-toggle="modal" data-target="#buyTicketModal">Buy Tickets</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="~/content/images/electric_castle.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h2 class="text-center">ELECTRIC CASTLE</h2>
+                                <p class="card-text">Electric Castle is a Romanian music festival that takes place every year on the Transylvanian spectacular domain of Banffy Castle, near Cluj-Napoca.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View details</button>
+                                        <button class="btn" data-toggle="modal" data-target="#buyTicketModal">Buy Tickets</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-1">
+        <div class="container">
+            <h2 class="text-center" style="padding-top:30px;">Hottest concerts</h2>
+            <hr />
+            <h3 class="text-center" style="padding-top:10px;">Choose the ones that fit your style!</h3>
+            <br />
+            <div class="row text-center">
+                <div class="col-sm-4">
+                    <div class="thumbnail" style="padding-top:30px;">
+                        <img class="img-thumbnail img-fluid" src="~/content/images/arcticMonkeys.jpg" alt="Arctic Monkeys" width="400" height="300">
+                        <h2><strong>Arctic Monkeys</strong></h2>
+                        <h3><strong>Bucharest</strong></h3>
+                        <p>Friday 27 November 2021</p>
+                        <button class="btn" data-toggle="modal" data-target="#buyTicketModal">Buy Tickets</button>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="thumbnail">
+                        <img class="img-thumbnail img-fluid" src="~/content/images/acdc.jpg" alt="AC/DC" width="400" height="300">
+                        <h2><strong>AC/DC</strong></h2>
+                        <h3><strong>Cluj-Napoca</strong></h3>
+                        <p>Friday 15 October 2021</p>
+                        <button class="btn" data-toggle="modal" data-target="#buyTicketModal">Buy Tickets</button>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="thumbnail" style="padding-top:30px;">
+                        <img class="img-thumbnail img-fluid" src="~/content/images/pexels-wendy-wei-1190297.jpg" alt="theweeknd" width="400" height="300">
+                        <h2><strong>The Weeknd</strong></h2>
+                        <h3><strong>Bucharest</strong></h3>
+                        <p>Friday 19 December 2021</p>
+                        <button class="btn" data-toggle="modal" data-target="#buyTicketModal">Buy Tickets</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*<partial name="_BuyTicketModal" />*@
+    </div>
+
+    <div id="contact" class="container" style="padding-top:50px;">
+        <h2 class="text-center">Contact</h2>
+        <p class="text-center"><em>We'd love to hear fom you!</em></p>
+
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Drop a note.</h2>
+                <p><i class="fas fa-map-marker"></i>Craiova, RO</p>
+                <p><i class="fas fa-phone"></i>Phone: +00 1515151515</p>
+                <p><i class="fas fa-envelope"></i>Email: mail@mail.com</p>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                    </div>
+                </div>
+                <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+                <br>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <button class="btn btn-primary pull-right" type="submit">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+    </div>
+
+</div>
